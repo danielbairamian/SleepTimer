@@ -1,5 +1,5 @@
 ### Sleep Timer ###
-Simple python application to mute and turn off a windows computer after some time
+Simple python application to mute, lock and turn down the brightness of a windows computer after some time
 
 ## Requirements ##
 ctypes, wmi, pycaw, tkinter
