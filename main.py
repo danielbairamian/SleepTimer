@@ -16,7 +16,7 @@ def format_seconds_to_hhmmss(seconds):
     return "%02i:%02i:%02i" % (hours, minutes, seconds)
 
 
-def turn_off(windows):
+def turn_off(window):
 
     window.destroy()
 
