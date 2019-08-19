@@ -1,10 +1,9 @@
-### Sleep Timer ###
-Simple python application to mute, lock and turn down the brightness of a windows computer after some time
+## Sleep Timer ##
+Simple python application that mutes and puts a PC to sleep after some time
+
+Currently only works for Windows
 
 ## Requirements ##
-ctypes, wmi, pycaw, tkinter
+ctypes, wmi, pycaw, tkinter, win32con, win32gui
 
-## Todo ##
-Display remaining time on GUI instead of terminal
-
-Maybe add support for multiple monitors
+or simply run the Application.exe single-file executable

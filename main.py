@@ -48,7 +48,7 @@ def countdown(window, hours, minutes, seconds):
     time_remaining_label.grid(column=3, row=5)
 
     while (time.time() - starting_time) < time_limit:
-        label_text = "Locking PC in: " + format_seconds_to_hhmmss(max(time_limit - (time.time() - starting_time), 0))
+        label_text = "Turning off PC in: " + format_seconds_to_hhmmss(max(time_limit - (time.time() - starting_time), 0))
         time_remaining_label.config(text=label_text)
         window.update()
 
