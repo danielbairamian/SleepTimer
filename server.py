@@ -1,12 +1,11 @@
 from flask import Flask, escape, request
-from main import run_app, set_time
-from tkinter import *
+from multiprocessing import Process, Value
+
+from gui import *
 
 app = Flask(__name__)
 
-window = Tk()
-run_app(window)
-
+timer = Timer
 
 @app.route('/')
 def hello():
@@ -24,6 +23,16 @@ def time():
     hours = request.args["hours"]
     minutes = request.args["minutes"]
     seconds = request.args["seconds"]
-    set_time(int(hours), int(minutes), int(seconds))
+    #set_time(int(hours), int(minutes), int(seconds))
     return f'200'
 
+
+if __name__ == '__main__':
+
+    gui_process = Process(target=create_gui, args=(timer,))
+    gui_process.start()
+
+    app.run(debug=True, use_reloader=False)
+
+    gui_process.join()
+    #create_gui(timer)
