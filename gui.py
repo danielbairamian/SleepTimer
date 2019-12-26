@@ -1,12 +1,11 @@
-
 from timer import *
 
+
 class Gui:
-    def __init__(self, timer):
-        self.window = Tk()
-        self.window.title("Sleep Timer")
-        self.window.configure(background="white")
-        self.window.geometry('400x100')
+    def __init__(self, window, timer):
+        self.timer = timer
+        self.window = window
+
 
         # Hours label
         self.h_lbl = Label(self.window, text="Hours")
@@ -26,22 +25,32 @@ class Gui:
         self.s_spin = Spinbox(self.window, from_=0, to=24, width=5)
         self.s_spin.grid(column=5, row=0)
 
-        # Start button
-        self.btn = Button(self.window, text="Start Timer",
-                     bg="orange", fg="red",
-                     command=lambda: timer.countdown(self.window, int(self.h_spin.get()), int(self.m_spin.get()), int(self.s_spin.get()))
-                     )
+        # Set time button
+        self.btn = Button(self.window, text="set time",
+                          bg="brown", fg="pink",
+                          command=lambda: self.timer.set_time(int(self.h_spin.get()),
+                                                               int(self.m_spin.get()), int(self.s_spin.get()))
+                          )
         self.btn.grid(column=3, row=3)
 
 
+
+       # Start button
+        self.btn = Button(self.window, text="Start Timer",
+                          bg="orange", fg="red",
+                          command=lambda: self.timer.countdown()
+                          )
+        self.btn.grid(column=3, row=5)
+
     def run(self):
+        print("run gui")
         self.window.mainloop()
+
 
     def set_time(self, timer):
         print("set_time")
-        #timer.
+        # timer.
 
-    #def update_gui(timer):
+    # def update_gui(timer):
 
-
-    #def create_gui(timer):
+    # def create_gui(timer):
