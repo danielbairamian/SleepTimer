@@ -6,6 +6,8 @@ from gui import *
 app = Flask(__name__)
 
 timer = Timer
+gui = Gui(timer)
+
 
 @app.route('/')
 def hello():
@@ -29,7 +31,7 @@ def time():
 
 if __name__ == '__main__':
 
-    gui_process = Process(target=create_gui, args=(timer,))
+    gui_process = Process(target= lambda: gui.run())#, args=(timer,))
     gui_process.start()
 
     app.run(debug=True, use_reloader=False)
