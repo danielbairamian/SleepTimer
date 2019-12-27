@@ -9,9 +9,9 @@ from tkinter import *
 
 
 class Timer:
-    def __init__(self, window):
+    def __init__(self):
         #, window, hours, minutes, seconds
-        self.window = window
+        #self.window = window
         self.hours = 0
         self.minutes = 0
         self.seconds = 0
@@ -25,9 +25,15 @@ class Timer:
         return "%02i:%02i:%02i" % (hours, minutes, seconds)
 
     def set_time(self, h, m, s):
+        print("set_time")
+        print("h is: " , h)
         self.hours = h
         self.minutes = m
         self.seconds = s
+        print(self.get_time())
+    def get_time(self):
+        return "%02i:%02i:%02i" % (self.hours, self.minutes, self.seconds)
+
 
 
     def turn_off(self, window):
@@ -60,6 +66,10 @@ class Timer:
         starting_time = time.time()
         time_limit = self.hours*3600 + self.minutes*60 + self.seconds
 
+        print("countdown")
+
+        '''
+        TODO: fix
         time_remaining_label = Label(self.window)
         time_remaining_label.grid(column=3, row=5)
 
@@ -69,6 +79,7 @@ class Timer:
             self.window.update()
 
         self.turn_off(self.window)
+        '''
 
 
 

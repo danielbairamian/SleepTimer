@@ -5,13 +5,8 @@ from gui import *
 
 app = Flask(__name__)
 
-window = Tk()
-window.title("Sleep Timer")
-window.configure(background="white")
-window.geometry('400x100')
-
-timer = Timer(window)
-gui = Gui(window, timer)
+timer = Timer()
+gui = Gui(timer)
 
 
 @app.route('/')
@@ -27,9 +22,11 @@ def start():
 
 @app.route("/time")
 def time():
-    hours = request.args["hours"]
-    minutes = request.args["minutes"]
-    seconds = request.args["seconds"]
+    print(request.args)
+    hours = int(request.args["hours"])
+    minutes = int(request.args["minutes"])
+    seconds = int(request.args["seconds"])
+    print("--->", hours, minutes, seconds)
     timer.set_time(hours,minutes,seconds)
     print("set time")
     print(hours, minutes, seconds)
@@ -38,12 +35,15 @@ def time():
     #set_time(int(hours), int(minutes), int(seconds))
     return f'200'
 
-
-#def run_gui =
+@app.route("/printtime")
+def printtime():
+    print(timer)
+    print(timer.get_time())
+    return timer.get_time()
 
 if __name__ == '__main__':
 
-    gui_process = Process(target=window.mainloop())#, args=(timer,))
+    gui_process = Process(target=gui.run)
     gui_process.start()
 
     app.run(debug=True, use_reloader=False)
