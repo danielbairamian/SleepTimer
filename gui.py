@@ -19,12 +19,6 @@ class Gui:
 
     def countdown(self):
         print("start countdown")
-
-        print(self.timer)
-        #self.timer.set_time(10,10,100)
-        #print(self.timer.get_time())
-        #print(self.timer.hours)
-        #print(self.timer.seconds)
         starting_time = time.time()
         time_limit = self.timer.hours * 3600 + self.timer.minutes * 60 + self.timer.seconds
 
@@ -87,8 +81,4 @@ class Gui:
 
     def set_time(self, timer):
         print("set_time")
-        # timer.
 
-    # def update_gui(timer):
-
-    # def create_gui(timer):

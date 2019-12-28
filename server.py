@@ -9,6 +9,9 @@ timer = Timer()
 gui = Gui(timer)
 
 
+def start_countdown():
+    gui.countdown()
+
 @app.route('/')
 def hello():
     name = request.args.get("name", "World")
@@ -17,19 +20,16 @@ def hello():
 
 @app.route("/start")
 def start():
+    start_countdown()
     return f'200'
 
 
 @app.route("/time")
 def time():
-    print(request.args)
     hours = int(request.args["hours"])
     minutes = int(request.args["minutes"])
     seconds = int(request.args["seconds"])
-    print("--->", hours, minutes, seconds)
     timer.set_time(hours,minutes,seconds)
-    print("set time")
-    print(hours, minutes, seconds)
 
 
     #set_time(int(hours), int(minutes), int(seconds))
@@ -41,26 +41,13 @@ def printtime():
     print(timer.get_time())
     return timer.get_time()
 
+
+
 if __name__ == '__main__':
-
-    print("in main, starting up")
-    print(timer)
-
-    print("new process inc")
-    #gui.run(timer)
-
-    #gui_process = Process(target=gui.run, args=(timer,))
-    #gui_process.start()
 
     thread = Thread(target=gui.run, args=(timer,))
     thread.start()
     #thread.join()
-    print("thread finished...exiting")
 
     app.run(debug=True, use_reloader=False)
     thread.join()
-
-
-
-    #gui_process.join()
-    #create_gui(timer)
