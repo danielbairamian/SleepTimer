@@ -3,8 +3,14 @@ from timer import *
 
 class Gui:
     def __init__(self, timer):
+        print("incoming timer in gui:")
+        print(timer)
         self.timer = timer
+        print("timer set in gui:")
+        print(self.timer)
+
         #timer = t
+
 
 
     def update_time(self):
@@ -14,7 +20,7 @@ class Gui:
     def countdown(self):
         print("start countdown")
 
-        #print(self.timer)
+        print(self.timer)
         #self.timer.set_time(10,10,100)
         #print(self.timer.get_time())
         #print(self.timer.hours)
@@ -34,8 +40,12 @@ class Gui:
         self.timer.turn_off(self.window)
 
 
-    def run(self):
+    def run(self, timer):
         print("run gui")
+        
+        print(timer)
+        print(self.timer)
+
         self.window = Tk()
         self.window.title("Sleep Timer")
         self.window.configure(background="white")

@@ -39,7 +39,7 @@ class Timer:
     def turn_off(self, window):
 
 
-        for i in range(0, 100):
+        for i in range(0, 10):
             print("Turn off.")
         '''window.destroy()
 

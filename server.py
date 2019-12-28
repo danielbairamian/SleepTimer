@@ -43,10 +43,15 @@ def printtime():
 
 if __name__ == '__main__':
 
-    gui_process = Process(target=gui.run)
+    print("in main, starting up")
+    print(timer)
+
+    print("new process inc")
+    #gui.run(timer)
+    gui_process = Process(target=gui.run, args=(timer,))
     gui_process.start()
 
-    app.run(debug=True, use_reloader=False)
+    #app.run(debug=True, use_reloader=False)
 
-    gui_process.join()
+    #gui_process.join()
     #create_gui(timer)
