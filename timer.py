@@ -25,12 +25,13 @@ class Timer:
         return "%02i:%02i:%02i" % (hours, minutes, seconds)
 
     def set_time(self, h, m, s):
-        print("set_time")
-        print("h is: " , h)
+        #print("set_time")
+        #print("h is: " , h)
         self.hours = h
         self.minutes = m
         self.seconds = s
-        print(self.get_time())
+        #print(self.get_time())
+
     def get_time(self):
         return "%02i:%02i:%02i" % (self.hours, self.minutes, self.seconds)
 

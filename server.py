@@ -1,6 +1,6 @@
 from flask import Flask, escape, request
 from multiprocessing import Process, Value
-
+from threading import Thread
 from gui import *
 
 app = Flask(__name__)
@@ -48,10 +48,19 @@ if __name__ == '__main__':
 
     print("new process inc")
     #gui.run(timer)
-    gui_process = Process(target=gui.run, args=(timer,))
-    gui_process.start()
 
-    #app.run(debug=True, use_reloader=False)
+    #gui_process = Process(target=gui.run, args=(timer,))
+    #gui_process.start()
+
+    thread = Thread(target=gui.run, args=(timer,))
+    thread.start()
+    #thread.join()
+    print("thread finished...exiting")
+
+    app.run(debug=True, use_reloader=False)
+    thread.join()
+
+
 
     #gui_process.join()
     #create_gui(timer)

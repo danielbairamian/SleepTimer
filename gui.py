@@ -42,7 +42,7 @@ class Gui:
 
     def run(self, timer):
         print("run gui")
-        
+
         print(timer)
         print(self.timer)
 
