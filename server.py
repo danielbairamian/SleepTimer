@@ -32,7 +32,6 @@ def time():
     timer.set_time(hours,minutes,seconds)
 
 
-    #set_time(int(hours), int(minutes), int(seconds))
     return f'200'
 
 @app.route("/printtime")
@@ -47,7 +46,6 @@ if __name__ == '__main__':
 
     thread = Thread(target=gui.run, args=(timer,))
     thread.start()
-    #thread.join()
 
     app.run(debug=True, use_reloader=False)
     thread.join()

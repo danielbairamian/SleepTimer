@@ -1,4 +1,5 @@
 from timer import *
+from tkinter import *
 
 
 class Gui:
